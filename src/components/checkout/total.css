@@ -1,0 +1,19 @@
+.total{
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+}
+
+.total h4{
+    font-size: 1.8rem;
+}
+
+.totalMoney{
+    margin-top: 0.5rem;
+}
+.confirmButton{
+    margin: 2rem auto;
+    background-color: #2193b0;
+    color: white;
+    width: 70%;
+}
