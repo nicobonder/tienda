@@ -39,7 +39,7 @@ const products = [
         name: "Una caricia divina",
         author:"Nico Bonder",
         regionTrip: "Argentina",
-        price: "2.50",
+        price: "2",
         rating: 4,
         image: caricia,
         description: "bla bla bla bla"

@@ -12,7 +12,6 @@ import { useStateValue } from '../../StateProvider';
 
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-/*import { useStateValue } from "..StateProvider/";*/
 
 const CheckoutPage = () => {
     const [{basket}, dispatch] = useStateValue();

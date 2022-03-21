@@ -1,8 +1,9 @@
 import React from "react";
 import accounting from "accounting";
-import { Button } from "@mui/material";
+import { Button, Link } from "@mui/material";
 import {getBasketTotal} from "../../reducer";
 import {useStateValue} from "../../StateProvider";
+import {Link as RouteLink} from 'react-router-dom';
 
 import './total.css';
 
@@ -13,8 +14,9 @@ const Total = () => {
             <h4>Cantidad de artículos: {basket?.length}</h4>
             
             <h4 className="totalMoney">Total a pagar:{accounting.formatMoney(getBasketTotal(basket))}</h4>
-            
-            <Button className="confirmButton">Confirmar compra</Button>
+            <RouteLink to="/checkout">
+                <Button className="confirmButton">Confirmar compra</Button>
+            </RouteLink>
         </div>
     )
 }

@@ -15,9 +15,12 @@ import { createTheme } from '@mui/material/styles';
 import './navbar.css';
 import { Badge, Button } from '@mui/material';
 import { ShoppingCart } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useStateValue } from '../../StateProvider';
+import SignIn from '../register/Signin';
+import { auth } from '../../firebase';
+import { actionTypes } from '../../reducer';
 
 let theme = createTheme();
 
@@ -97,8 +100,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Navbar() {
-  const [{basket}, dispatch] = useStateValue();
-
+  const [{basket, user}, dispatch] = useStateValue();
+  const navigate = useNavigate();
+const handleAuth = ()=>{
+  if (user){
+    auth.signOut();
+    dispatch({
+      type: actionTypes.EMPTY_BASKET,
+      basket: [],
+    });
+    dispatch({
+      type: actionTypes.SET_USER,
+      user: null,
+    });
+    navigate("/")
+  }
+}
    /* const classes = useStyles;*/
   return (
     <div className='navbar'> 
@@ -133,11 +150,13 @@ export default function Navbar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            Bienvenid@!
+            Bienvenid@ {user ? user.email : ""}!
           </Typography>
+          <Link to='/signin'>
           <div>
-              <button className='loginButton'>Logueate</button>
+              <button className='loginButton' onClick={handleAuth}>{user ? "Desconectate" : "Logueate"}</button>
           </div>
+          </Link>
         <Link to="/checkout-page">
           <IconButton>
           <Badge badgeContent={basket?.length} color="secondary" className='badgeCart'>
