@@ -6,7 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -16,8 +15,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import {Link as RouteLink, useNavigate} from 'react-router-dom';
 import { auth } from '../../firebase';
-
-import validation from './validation';
 
 function Copyright(props) {
   return (
@@ -38,33 +35,38 @@ export default function SignUp() {
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
     const navigate = useNavigate();
-    const [errors, setErrors] = useState({});
-    const [dataIsCorrect, setDataIsCorrect] = useState(false);
+    const [nameMessage, setNameMessage] = useState("");
+    const [lastNameMessage, setLastNameMessage] = useState("");
+    const [emailMessage, setEmailMessage] = useState("");
+    const [passwordMessage, setPasswordMessage] = useState("");
+    const [nameError, setNameError] = useState(false);
+    const [lastNameError, setLastNameError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
 
-
-    const signup = (e) => {
-        e.preventDefault();
+    const handleSubmit = (event) => {
+      event.preventDefault()
+      setNameError(false)
+      setLastNameError(false)
+      setEmailError(false)
+      setPasswordError(false)
+      
+      if ((name == '') || (lastName == '') || (email == '') || (password == '')){
+        return(alert ('Alguno de los datos es incorrecto o te falta información'))
+      }else if(name.length<3){
+          return(alert ("El nombre debe tener al menos 3 letras"))
+      }else if(lastName.length<2){
+        return(alert ("El apellido debe tener al menos 2 letras"))
+    }  
+      
         auth.createUserWithEmailAndPassword(email, password).then((auth)=>{
-           console.log(auth);
-           if (auth){
-               navigate("/");
-           }
-        }).catch(err=>alert(err.message))
-    }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+        console.log(auth);
+        if (auth){
+            navigate("/"); 
+        }
+     }).catch(err=>alert('Alguno de los datos es incorrecto o te falta información'))
+ }
   
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-      name: data.get('name'),
-      lastName: data.get('lastName'),
-    });
-  };
-
- 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -87,55 +89,92 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
+                  required={true}
                   value={name}
-                  onChange={e=>setName(e.target.value)}
-                  autoComplete="given-name"
-                  name="Nombre"
-                  required
-                  fullWidth
-                  id="firstName"
+                  onChange={(e) =>{
+                    setName(e.target.value);
+                    if(name.length<3){
+                      setNameError(true);
+                      setNameMessage("El nombre debe tener al menos 3 letras");
+                      
+                    }else{
+                      setNameError(false);
+                      setNameMessage("");
+                    }
+                  }}
+                  error={nameError}
                   label="Nombre"
-                  autoFocus
+                  helperText={nameMessage}
+                  variant="outlined"
+                  
                 />
 
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
                  value={lastName}
-                 onChange={e=>setLastName(e.target.value)}
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Apellido"
-                  name="Apellido"
-                  autoComplete="Apellido"
+                 onChange={(e) =>{
+                  setLastName(e.target.value);
+                  if(lastName.length<2){
+                    setLastNameError(true);
+                    setLastNameMessage("El apellido debe tener al menos 2 letras");
+                  }else{
+                    setLastNameError(false);
+                    setLastNameMessage("");
+                  }
+                }}
+                error={lastNameError}
+                label="Apellido"
+                helperText={lastNameMessage}
+                variant="outlined"
+                required
                 />
 
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   value={email}
-                  onChange={e=>setEmail(e.target.value)}
+                  onChange={(e) =>{
+                    setEmail(e.target.value);
+                    if(email.length===0){
+                      setEmailError(true)
+                      setEmailMessage("Por favor, ingresá un email.");
+                    }else if(!/\S+@\S+\.\S+/.test(email)){
+                      setEmailMessage("El email es inválido.");
+                    }else{
+                      setEmailError(false);
+                      setEmailMessage("");
+                    }
+                  }}
                   required
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
+                  error={emailError}
+                label="Email"
+                helperText={emailMessage}
+                variant="outlined"
                 />
 
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  value={password}
-                  onChange={e=>setPassword(e.target.value)}
-                  required 
-                  fullWidth
-                  name="password"
-                  label="Password"
                   type="password"
-                  id="password"
-                  autoComplete="new-password"
+                  value={password}
+                  onChange={(e) =>{
+                    setPassword(e.target.value);
+                    if(password.length<6){
+                      setPasswordError(true);
+                      setPasswordMessage("La contraseña debe tener al menos 6 caracteres.");
+                    }else{
+                      setPasswordError(false);
+                      setPasswordMessage("");
+                    }
+                  }}
+                  fullWidth
+                  required
+                  error={passwordError}
+                  label="Contraseña"
+                  helperText={passwordMessage}
+                  variant="outlined"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -151,7 +190,7 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               className="submit"
-              onClick={signup}
+              onClick={() => ('You clicked on me')}
             >
               Registrate
             </Button>
@@ -169,3 +208,21 @@ export default function SignUp() {
     </ThemeProvider>
   );
 }
+
+
+
+
+
+/*      if (name == ''){
+        setNameError(true)
+      }
+      if (lastName == ''){
+        setLastNameError(true)
+      }
+      if (email == ''){
+        setEmailError(true)
+      }
+      if (password == ''){
+        setPasswordError(true)
+      } */
+
