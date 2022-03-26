@@ -16,6 +16,13 @@ import AddressForm from './AdressForm';
 import PaymentForm from './Payment';
 import Review from './Review';
 
+import {downloadEbook} from "../../reducer";
+import MyFile from './MyFile';
+import Grid from '@mui/material/Grid';
+import { useStateValue } from '../../StateProvider';
+
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -48,6 +55,7 @@ const theme = createTheme();
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [{basket}, dispatch] = useStateValue();
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -56,6 +64,18 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+
+  function Download() {
+    return (
+        <React.Fragment>
+            {basket?.map((item) => (
+                <Grid item xs={12} sm={8} md={6} lg={4}>
+                    <MyFile key={item.id} product={item} />
+                </Grid>
+            ))}
+        </React.Fragment>
+    );
+}
 
   return (
     <ThemeProvider theme={theme}>
@@ -79,8 +99,22 @@ export default function Checkout() {
                 <Typography variant="h5" gutterBottom>
                   Gracias por tu compra.
                 </Typography>
+               
+                <Typography variant="h4" gutterBottom>
+                  Descargá los productos en tu dispositivo.
+                </Typography>
+                
+                {/*<Button onClick={downloadEbook} sx={{ mt: 3, ml: 1 }}>
+                   Descargar
+                </Button>
+                */}
+
+                <Grid item xs={12} sm={8} md={6} lg={4}>
+                    <Download />
+                </Grid>
+               
                 <Typography variant="subtitle1">
-                  Tu orden te llegará a tu casilla de mail en unos instantes.
+                  Tu orden se descargará en unos instantes.
                 </Typography>
               </React.Fragment>
             ) : (

@@ -1,0 +1,12 @@
+.cardCheckOut{
+    width: 16rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.picture{
+    width: 10rem;
+    display: flex;
+}

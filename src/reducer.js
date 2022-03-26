@@ -1,3 +1,10 @@
+import axios from 'axios';
+import { useStateValue } from '../src/StateProvider'
+import * as React from 'react';
+import Grid from '@mui/material/Grid';
+
+import cariciaDivina from './ebooks/cariciaDivina.pdf'
+
 export const initialState = {
     basket: [],
     user: null,
@@ -16,6 +23,40 @@ export const getBasketTotal = (basket) => {
     )
 }
 
+/*const GetFile = () => {
+    const [{basket}, dispatch] = useStateValue();
+    return (
+        <React.Fragment>
+            {basket?.map((item) => (
+                <Grid item xs={12} sm={8} md={6} lg={4}>
+                    <a key={item.id} ebooks={item.file}>Libros</a>
+                </Grid>
+            ))}
+        </React.Fragment>
+    );
+}
+*/
+
+/*export const getfile = cariciaDivina;*/
+
+/*export const downloadEbook = () => {
+    axios({
+        url: GetFile,
+        method: 'GET',
+        responseType: 'blob'
+  })
+        .then((response) => {
+              const url = window.URL
+                    .createObjectURL(new Blob([response.data]));
+              const link = document.createElement('a');
+              link.href = url;
+              link.setAttribute('download', 'ebook.pdf');
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+        })
+}
+*/
 const reducer = (state, action) => {
     console.log(action);
     switch(action.type) {

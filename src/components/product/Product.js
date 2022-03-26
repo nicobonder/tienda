@@ -55,7 +55,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function Product({
-  product : {id, name, author, regionTrip, image, price, rating, description}}) {
+  product : {id, name, author, regionTrip, image, price, rating, description, file}}) {
   const [{basket}, dispatch] = useStateValue();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -75,6 +75,7 @@ export default function Product({
         rating,
         image,
         description,
+        file
       }
     })
   }
@@ -102,6 +103,7 @@ export default function Product({
         <Typography variant="body2" color="text.secondary">
           {regionTrip}
         </Typography>
+
       </CardContent>
      
       <CardActions disableSpacing>
