@@ -1,10 +1,3 @@
-import axios from 'axios';
-import { useStateValue } from '../src/StateProvider'
-import * as React from 'react';
-import Grid from '@mui/material/Grid';
-
-import cariciaDivina from './ebooks/cariciaDivina.pdf'
-
 export const initialState = {
     basket: [],
     user: null,
@@ -37,8 +30,6 @@ export const getBasketTotal = (basket) => {
 }
 */
 
-/*export const getfile = cariciaDivina;*/
-
 /*export const downloadEbook = () => {
     axios({
         url: GetFile,
@@ -57,6 +48,7 @@ export const getBasketTotal = (basket) => {
         })
 }
 */
+
 const reducer = (state, action) => {
     console.log(action);
     switch(action.type) {

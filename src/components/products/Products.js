@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -18,9 +18,38 @@ const Item = styled(Paper)(({ theme }) => ({
  
 }));
 
+
 export default function Products() {
+  const [regionTrip, setRegionTrip] = useState('')
+
+  const regionTrips = [
+    'Sudamérica',
+    'Norte América',
+    'Australia',
+    'Oceanía',
+    'Argentina',
+    'Mundo',
+    'Europa',
+    'Asia',
+    'Sudeste Asiático',
+    'África'
+  ] 
+
+
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box className='home' sx={{ flexGrow: 1 }}>
+      <div className='filters'>
+        <h4>Regiones</h4>
+        <ul>{regionTrips.map(regionTrip => (
+            <li key={regionTrip}
+                onClick={() => setRegionTrip(regionTrip)}>
+                  {regionTrip}
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <Grid className='containerProducts' container spacing={3}>
         
         {

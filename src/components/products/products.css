@@ -3,6 +3,25 @@
     padding: 0;
 }
 
+.home{
+    display: flex;
+
+}
+
 .containerProducts{
     padding: 5rem 0.5rem 2rem 0.5rem;
+}
+
+.filters{
+    padding: 5rem 0.5rem 2rem 0.5rem;
+}
+
+.filters h4{
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+.filters li{
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
 }
