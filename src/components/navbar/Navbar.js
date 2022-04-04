@@ -9,6 +9,8 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
+import logoTienda from '../../images/tiendaLogo.png';
+
 import { purple, lightBlue } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
@@ -137,7 +139,7 @@ const handleAuth = ()=>{
           
           <Link  to='/' >
               <IconButton>
-                  Logo
+                  <img className='logoTienda' src={logoTienda} />
               </IconButton>
             </Link>
           </div>

@@ -10,6 +10,11 @@
     justify-content: space-between;
 }
 
+.logoTienda{
+    height: 4rem;
+    width: auto;
+}
+
 .loginButton{
     display: flex;
     color: black;
@@ -25,9 +30,7 @@
     margin: 0rem 2rem;
     justify-content: center;
     align-items: center;
-
 }
-
 
 .loginButton:hover{
     border: 1px solid #0472a5;
