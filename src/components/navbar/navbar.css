@@ -7,7 +7,10 @@
 
     a{
     text-decoration: none;
+    
     }
+
+   
 
     .toolBar{
         background: #2193b0;  /* fallback for old browsers */
@@ -333,7 +336,12 @@
     }
 
     a{
-    text-decoration: none;
+    text-decoration: none;    
+    color: transparent;
+    }
+
+    a:hover{
+        background-color: transparent;
     }
 
     .toolBar{
@@ -354,8 +362,8 @@
     }
 
     .logoTienda:hover{
-        border-radius: 0.25rem;
         height: 3.8rem;
+        border-radius: 0.25rem;
         box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
     -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
     -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
@@ -381,7 +389,7 @@
         margin: 0rem 4rem 0 2rem;
         justify-content: center;
         align-items: center;
-        transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
     }
 
     .loginButton:hover{
@@ -395,6 +403,7 @@
     .cartButton{
         margin-right: 0.2rem;
         color: black;
+        
     }
 
     .badgeCart{
@@ -402,14 +411,17 @@
         height: 2.5rem;
         margin-right: 4rem;
         color: white;
-        
+        display: flex;
+     
+
     }
 
     .shoppingCart{
         transition: all 0.3s ease-in;
         background-color: transparent;
         border: none;
-        
+        display: flex;
+    
     }
 
     .shoppingCart:hover{
