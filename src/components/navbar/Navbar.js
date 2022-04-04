@@ -128,7 +128,7 @@ const handleAuth = ()=>{
             </div>
             </Link>
           <Link to="/checkout-page">
-            <IconButton className='shoppingCart' sx={{ marginRight: 6 }}>
+            <IconButton className='shoppingCart' sx={{ marginRight: 8 }}>
             <Badge badgeContent={basket?.length} color="secondary" className='badgeCart' sx={{ margin: 0}}>
                     <ShoppingCart fontSize='large' className='cartButton' />
                 </Badge>
