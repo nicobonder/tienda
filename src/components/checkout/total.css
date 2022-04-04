@@ -10,10 +10,26 @@
 
 .totalMoney{
     margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
 }
+
 .confirmButton{
-    margin: 2rem auto;
-    background-color: #2193b0;
-    color: white;
+    margin: 1rem auto;
+    color: #2193b0;
+    background-color: transparent;
+    font-weight: 600;
     width: 70%;
+    height: 2rem;
+    cursor: pointer;
+    border: 1px solid #2193b0;
+    border-radius: 0.25rem;
+    box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+-webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+-moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    transition: all 0.1s ease-in;
+}
+
+.confirmButton:hover{
+    height: 2.2rem;
+    width: 71%;
 }

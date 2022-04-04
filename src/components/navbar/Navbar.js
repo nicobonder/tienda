@@ -31,34 +31,6 @@ const deepBlue = lightBlue[500];
 const softBlue = lightBlue[200];
 const lightPurple = purple[150];
 
-
-/*copio lo que hace el pero no me sirve para customizar nada
-
-const useStyles = styled((theme) => ({
-    root: {
-        flexGrow: 1,
-        marginBottom: "3rem",
-    },
-    Navbar: {
-        backgroundColor: "whitesmoke",
-        boxShadow: "none",
-    },
-    grow: {
-        flexGrow: 1,
-    },
-    button:{
-        marginLeft: theme.spacing(2),
-    },
-    image: {
-        marginRight: "1rem",
-    },
-    appBar:{
-        marginBottom: '3rem',
-       
-    }
-}));
-tb voy a comentar cdo activa la variable usestyle*/
-
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -70,18 +42,20 @@ const Search = styled('div')(({ theme }) => ({
   width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
-    width: 'auto',
+    width: '7rem',
+    marginLeft: '-1.5rem'
   },
 }));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
+  padding: theme.spacing(0, 1),
   height: '100%',
   position: 'absolute',
   pointerEvents: 'none',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -93,9 +67,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '12ch',
+      width: '4ch',
       '&:focus': {
-        width: '20ch',
+        width: '4ch',
       },
     },
   },
@@ -121,64 +95,58 @@ const handleAuth = ()=>{
    /* const classes = useStyles;*/
   return (
     <div className='navbar'> 
-    <Box sx={{ flexGrow: 1, 
-                }}
-                >
-      <AppBar position="fixed">
-        <Toolbar className='toolBar'>
-          <div className='menuLeft'>
-          <IconButton className='buttonBurguer'
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          
-          <Link  to='/' >
-              <IconButton>
-                  <img className='logoTienda' src={logoTienda} />
-              </IconButton>
-            </Link>
-          </div>
+      <Box sx={{ flexGrow: 1, 
+                  }}
+                  >
+        <AppBar position="fixed">
+          <Toolbar className='toolBar'>
+            <div className='menuLeft'>
+            {/* <IconButton className='buttonBurguer'
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+                </IconButton> */}
+            
+            <Link  to='/' >
+                <IconButton className='logoContainer' sx={{ padding: 0}}>
+                    <img className='logoTienda' src={logoTienda} />
+                </IconButton>
+              </Link>
+            </div>
 
-          <div className='menuRight'>
-          <Typography
-            variant="h6" 
-            color= "#000"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            Bienvenid@ {user ? user.email : ""}!
-          </Typography>
-          <Link to='/signin'>
-          <div>
-              <button className='loginButton' onClick={handleAuth}>{user ? "Desconectate" : "Logueate"}</button>
-          </div>
+            <div className='menuRight'>
+            <h4 className='welcome'>
+              Bienvenid@ {user ? user.email : ""}!
+              </h4>
+            <Link to='/signin'>
+            <div>
+                <button className='loginButton' onClick={handleAuth}>{user ? "Desconectate" : "Logueate"}</button>
+            </div>
+            </Link>
+          <Link to="/checkout-page">
+            <IconButton className='shoppingCart' sx={{ marginRight: 3 }}>
+            <Badge badgeContent={basket?.length} color="secondary" className='badgeCart' sx={{ margin: 0}}>
+                    <ShoppingCart fontSize='large' className='cartButton' />
+                </Badge>
+            </IconButton>
           </Link>
-        <Link to="/checkout-page">
-          <IconButton>
-          <Badge badgeContent={basket?.length} color="secondary" className='badgeCart'>
-                  <ShoppingCart fontSize='large' className='cartButton' />
-              </Badge>
-          </IconButton>
-        </Link>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-          </div>
-        </Toolbar>
-      </AppBar>
-    </Box>
+            <Search >
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase 
+                placeholder=""
+                inputProps={{ fontSize:'medium', 'aria-label': 'search' }}
+              />
+            </Search>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </Box>
     </div>
   );
 }

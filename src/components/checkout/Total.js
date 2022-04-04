@@ -15,7 +15,7 @@ const Total = () => {
             
             <h4 className="totalMoney">Total a pagar:{accounting.formatMoney(getBasketTotal(basket))}</h4>
             <RouteLink to="/checkout">
-                <Button className="confirmButton">Confirmar compra</Button>
+                <button className="confirmButton">CONFIRMAR COMPRA</button>
             </RouteLink>
         </div>
     )

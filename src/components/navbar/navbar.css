@@ -1,59 +1,433 @@
-.navbar{
-    display: flex;
+/*Menos de 640px*/
+@media (max-width: 640px){
+    .navbar{
+        display: flex;
+        align-items: center;
+    }
+
+    a{
+    text-decoration: none;
+    }
+
+    .toolBar{
+        background: #2193b0;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #6dd5ed, #03a9f4);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #6dd5ed, #03a9f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        display: flex;
+    }
+
+    .logoTienda{
+        height: 3.2rem;
+        width: auto;
+        transition: all 0.3s ease-in;
+        background-color: #67D3ED;
+        margin-left: -0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .logoTienda:hover{
+        border-radius: 0.25rem;
+        height: 3.3rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    }
+
+    .welcome{
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: none;
+    }
+
+    .loginButton{
+        display: flex;
+        color: black;
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        font-weight: 600;
+        font-family: roboto;
+        cursor: pointer;
+        height: 2.5rem;
+        width: 9rem;
+        padding: 1rem;
+        margin: 0rem 1rem 0rem 0;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in;
+    }
+
+    .loginButton:hover{
+        height: 2.8rem;
+        border-radius: 0.25rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    }
+
+    .cartButton{
+        margin-right: 0.2rem;
+        color: black;
+    }
+
+    .badgeCart{
+        cursor: pointer;
+        height: 2rem;
+        margin-right: 0.5rem;
+        margin-left: -0.6rem;
+        color: white;
+        
+    }
+
+    .shoppingCart{
+        transition: all 0.3s ease-in;
+        background-color: transparent;
+        border: none;
+        
+    }
+
+    .shoppingCart:hover{
+        height: 2rem;
+        border-radius: 0.25rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);    
+    }
+
+    .menuLeft{
+        display: flex;
+        align-items: center;
+    }
+
+    .menuRight{
+        display: flex;
+        align-items: center;
+       margin-left: 2.5rem;
+    
+    }
 }
 
-.toolBar{
-    background: #2193b0;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #6dd5ed, #03a9f4);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #6dd5ed, #03a9f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    display: flex;
-    justify-content: space-between;
+
+/*Mas de 640px*/
+@media (min-width: 640px){
+    .navbar{
+        display: flex;
+        align-items: center;
+    }
+
+    a{
+    text-decoration: none;
+    }
+
+    .toolBar{
+        background: #2193b0;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #6dd5ed, #03a9f4);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #6dd5ed, #03a9f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        display: flex;
+    }
+
+    .logoTienda{
+        height: 3.2rem;
+        width: auto;
+        transition: all 0.3s ease-in;
+        background-color: #67D3ED;
+        margin-left: -0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .logoTienda:hover{
+        border-radius: 0.25rem;
+        height: 3.3rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    }
+
+    .welcome{
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: flex;
+    }
+
+    .loginButton{
+        display: flex;
+        color: black;
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        font-weight: 400;
+        font-family: roboto;
+        cursor: pointer;
+        height: 2.5rem;
+        width: 9rem;
+        padding: 1rem;
+        margin: 0rem 0.8rem 0rem 0;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in;
+    }
+
+    .loginButton:hover{
+        height: 2.8rem;
+        border-radius: 0.25rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    }
+
+    .cartButton{
+        margin-right: 0.2rem;
+        color: black;
+    }
+
+    .badgeCart{
+        cursor: pointer;
+        height: 2rem;
+        margin-right: 0.8rem;
+        margin-left: -0.8rem;
+        color: white;
+        
+    }
+
+    .shoppingCart{
+        transition: all 0.3s ease-in;
+        background-color: transparent;
+        border: none;
+        
+    }
+
+    .shoppingCart:hover{
+        height: 2rem;
+        border-radius: 0.25rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);    
+    }
+
+    .menuLeft{
+        display: flex;
+        align-items: center;
+    }
+
+    .menuRight{
+        display: flex;
+        align-items: center;
+       margin-left: 2.5rem;
+    
+    }
 }
 
-.logoTienda{
-    height: 4rem;
-    width: auto;
+
+/*Menos de 840px y mas de 768*/
+@media (min-width: 768px){
+    .navbar{
+        display: flex;
+        align-items: center;
+      
+    }
+
+    a{
+    text-decoration: none;
+    }
+
+    .toolBar{
+        background: #2193b0;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #6dd5ed, #03a9f4);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #6dd5ed, #03a9f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        display: flex;
+    }
+
+
+    .logoTienda{
+        height: 3.8rem;
+        width: auto;
+        transition: all 0.3s ease-in;
+        background-color: #67D3ED;
+        margin-left: -0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .logoTienda:hover{
+        border-radius: 0.25rem;
+        height: 3.6rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    }
+
+    .welcome{
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
+
+    .loginButton{
+        display: flex;
+        color: black;
+        background-color: transparent;
+        border: none;
+        font-size: 1.1rem;
+        font-family: roboto;
+        cursor: pointer;
+        height: 2.5rem;
+        width: 9rem;
+        padding: 1rem;
+        margin: 0rem 1.5rem;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in;
+    }
+
+    .loginButton:hover{
+        height: 2.8rem;
+        border-radius: 0.25rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    }
+
+    .cartButton{
+        margin-right: 0.2rem;
+        color: black;
+    }
+
+    .badgeCart{
+        cursor: pointer;
+        height: 2.5rem;
+        margin-right: 1.5rem;
+        color: white;
+        
+    }
+
+    .shoppingCart{
+        transition: all 0.3s ease-in;
+        background-color: transparent;
+        border: none;
+        
+    }
+
+    .shoppingCart:hover{
+        height: 2.8rem;
+        border-radius: 0.25rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);    
+    }
+
+    .menuLeft{
+        display: flex;
+        align-items: center;
+    }
+
+    .menuRight{
+        display: flex;
+        align-items: center;
+       margin-left: 3rem;
+    
+    }
 }
 
-.loginButton{
-    display: flex;
-    color: black;
-    background-color: transparent;
-    border: none;
-    font-size: 1.5rem;
-    font-family: roboto;
-    cursor: pointer;
-    transition: all 0.3s;
-    height: 2.5rem;
-    width: 8rem;
-    padding: 1rem;
-    margin: 0rem 2rem;
-    justify-content: center;
-    align-items: center;
-}
+/*Mas de 840px*/
+@media (min-width: 840px){
+    .navbar{
+        display: flex;
+    }
 
-.loginButton:hover{
-    border: 1px solid #0472a5;
-    border-radius: 5px;
-}
+    a{
+    text-decoration: none;
+    }
 
-.cartButton{
-    margin-right: 0.2rem;
-    color: black;
-}
+    .toolBar{
+        background: #2193b0;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #6dd5ed, #03a9f4);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #6dd5ed, #03a9f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        display: flex;
+        justify-content: space-between;
+    }
 
-.badgeCart{
-    margin-right: 2rem;
-    color: white;
-}
 
-.menuLeft{
-    display: flex;
-    align-items: center;
-}
+    .logoTienda{
+        height: 4rem;
+        width: auto;
+        transition: all 0.3s ease-in;
+        background-color: #67D3ED;
+        margin-left: 1rem;
+    }
 
-.menuRight{
-    display: flex;
-    align-items: center;
-   
+    .logoTienda:hover{
+        border-radius: 0.25rem;
+        height: 3.8rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    }
+
+    .welcome{
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-right: 2rem;
+    }
+
+    .loginButton{
+        display: flex;
+        color: black;
+        background-color: transparent;
+        border: none;
+        font-size: 1.5rem;
+        font-family: roboto;
+        cursor: pointer;
+        height: 2.5rem;
+        width: 10rem;
+        padding: 1rem;
+        margin: 0rem 4rem 0 2rem;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in;
+    }
+
+    .loginButton:hover{
+        height: 2.8rem;
+        border-radius: 0.25rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    }
+
+    .cartButton{
+        margin-right: 0.2rem;
+        color: black;
+    }
+
+    .badgeCart{
+        cursor: pointer;
+        height: 2.5rem;
+        margin-right: 4rem;
+        color: white;
+        
+    }
+
+    .shoppingCart{
+        transition: all 0.3s ease-in;
+        background-color: transparent;
+        border: none;
+        
+    }
+
+    .shoppingCart:hover{
+        height: 2.8rem;
+        border-radius: 0.25rem;
+        box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);
+    -moz-box-shadow: 4px 4px 10px -2px rgba(0,0,0,0.85);    
+    }
+
+    .menuLeft{
+        display: flex;
+        align-items: center;
+    }
+
+    .menuRight{
+        display: flex;
+        align-items: center;
+    
+    }
 }

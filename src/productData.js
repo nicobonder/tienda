@@ -37,7 +37,7 @@ const products = [
         price: "5",
         rating: 5,
         image: visita,
-        description: "bla bla bla bla",
+        description: "Como habitante del interior del interior de Argentina, me resulta casi inevitable pensar mis historias en pequeños pueblos, donde no suele haber mucho para hacer, entonces vemos personajes aburridos, buscando la diversión en pequeñas maldades, con fantasías de bajo vuelo. Por eso digo que Visita oficial es una colección de 32 cuentos con historias que están ambientadas en pequeños pueblos y son abundantes de personajes que vas a odiar.",
         file: <a href={visitaOficial} 
         download="visitaOficial.pdf">Descarga el libro</a>
     },
@@ -49,7 +49,7 @@ const products = [
         price: "4",
         rating: 4,
         image: anecdotas,
-        description: "bla bla bla bla",
+        description: "Colección de cuentos que tienen un camino en común: las anécdotas vividas por una persona desde que inicia su infancia hasta que esta se termina. ¿Cómo saber cuándo se acaba una etapa de la vida? Transitando estas historias vas a descubrir que, como en la tuya, en cualquier vida hay tiempos felices, épocas de descubrimiento y, para algunos, también existen momentos trágicos. ¿Cuántas historias se viven en una vida? ¿Cuántos traumas nos llevamos de la infancia para el resto de la vida?",
         file: <a href={anecdotasInfantiles} 
         download="anecdotasInfantiles.pdf">Descarga el libro</a>
     },
@@ -61,7 +61,7 @@ const products = [
         price: "2",
         rating: 4,
         image: caricia,
-        description: "bla bla bla bla",
+        description: "Cada cuento tiene protagonistas y miradas diferentes. En algunos encontramos una mirada desde adentro de la cancha, en otros se parte de los ojos de un chico que sueña con debutar en la primera de un club de barrio. Y porque el deporte es sagrado para algunos, conoceremos el Génesis futbolero. Otras voces lo rozan solo tangencialmente, mostrando lo que provoca el fanatismo, o la historia de héroes impensados que salvan una ciudad desde la torre de transmisión de una cancha. La historia más trágica está basada en una anécdota real que le contó un paciente a mi padre. Si sos fanático del deporte este libro es ideal para vos, y también si sos de las personas que se asombran y disfrutan con delirios sencillos.",
         file: <a href={cariciaDivina} 
         download="cariciaDivina.pdf">Descarga el libro</a>
     },

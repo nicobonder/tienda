@@ -30,13 +30,13 @@ const CheckoutPage = () => {
 
     return(
        <div>
-           <Grid container spacing={3}>
+           <Grid sx={{ justifyContent: 'space-between' }} container spacing={3}>
                 <Grid className='yourCart' item xs={12}>
                     <Typography align='center' gutterBottom  className='yourC'>
                         <h3>Tu carrito de compras</h3>
                     </Typography>    
                 </Grid>
-                <Grid item xs={12} sm={8} md={9} container spacing={2}>
+                <Grid sx={{marginLeft: 3}} item xs={12} sm={8} md={8} container spacing={2}>
                     <FormRow />
                 </Grid>   
                 <Grid item xs={12} sm={4} md={3}>

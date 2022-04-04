@@ -65,26 +65,32 @@ export default function CheckoutCard ({
   })
 
   return (
-    <Card className='cardHeader' sx={{ maxWidth: 345, color: '#000' }}>
-      <CardHeader 
+    <Card sx={{ maxWidth: 350, color: '#000' }}>
+      <div className='cardHeader'>
+        <CardHeader 
+          
+          action={
+            <Typography  sx={{ fontSize: '1.2rem', marginTop:0.3}} variant="h5" color="text.secondary">
+            {accounting.formatMoney(price)}
+            </Typography>
+          }
+        />
+          <CardContent>  
+            <Typography sx={{ fontSize: '1.2em', fontWeight:500, marginRight: 0.7}} variant="h3" color="text.secondary">
+                {name}
+            </Typography>
         
-        action={
-          <Typography variant="h5" color="text.secondary">
-          {accounting.formatMoney(price)}
-          </Typography>
-        }
-        title={name}
-        subheader={author}
-      />
-
-
+            <Typography sx={{ fontSize: '1.1em', marginRight: 0.5 }} variant="h3" color="text.secondary">
+              {author}
+            </Typography>
+          </CardContent>
+      </div>
       <CardMedia
         component="img"
-        height="194"
+        height="300"
         image={image}
         alt={name}
       />
-          
       
       <CardActions className='actions' disableSpacing>
       
@@ -96,7 +102,7 @@ export default function CheckoutCard ({
               ))}
           </div>
           <IconButton>
-            <DeleteIcon onClick={removeItem} fontSize='large' />
+            <DeleteIcon onClick={removeItem} fontSize='medium' />
           </IconButton>
           
       </CardActions>
