@@ -33,9 +33,9 @@ export default function MyFile({
                 alt={name}
             />
             <CardContent>
-                <Typography paragraph>
+                <div className='downloadBook'>
                     {file}
-                </Typography>
+                </div>
             </CardContent>
         </Card>
     )

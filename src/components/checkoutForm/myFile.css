@@ -10,3 +10,17 @@
     width: 10rem;
     display: flex;
 }
+
+.downloadBook{
+    color: black;
+}
+
+.downloadBook a{
+    color: black;
+    transition: all 0.2s ease-in;
+}
+
+.downloadBook a:hover{
+    font-size: 1.2rem;
+    
+}
