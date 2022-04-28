@@ -1,21 +1,19 @@
 import Navbar from './components/navbar/Navbar';
 import Products from './components/products/Products';
 import CheckoutPage from './components/checkout/CheckoutPage';
-
+import Detail from './components/Detail/Detail';
 import SignIn from './components/register/Signin';
 import SignUp from './components/register/SignUp';
-
 import Checkout from './components/checkoutForm/Checkout';
 
 import { purple, lightBlue, red } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
 import {BrowserRouter as Router, BrowserRouter, Route, Routes} from "react-router-dom";
-
 import { useEffect } from 'react';
 import { auth } from './firebase';
 import { actionTypes } from './reducer';
 import { useStateValue } from './StateProvider';
+
 
 const theme = createTheme({
   palette: {
@@ -58,6 +56,7 @@ function App() {
                 <Route path="/signin" element={<SignIn />} /> 
                 <Route path="signup" element={<SignUp />} />
                 <Route path="/checkout" element={<Checkout />} />
+                <Route path="/product/:id" element={<Detail />} />
             </Routes>
         </BrowserRouter>
       </div>

@@ -1,0 +1,110 @@
+.detailComponent{
+    margin-top: 5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.topSection{
+    display: flex;
+}
+.leftColumn{
+    margin: 1rem;
+    width: 43%;
+}
+
+.btnBack{
+    display: flex;
+    color: black;
+    font-weight: 600;
+    align-items: center;
+}
+
+.freeSample img{
+    width: 21.5%;
+    height: auto;
+}
+
+.freeSample h3, .aboutAuthor h3{
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.aboutAuthor p{
+    width: 95%;
+    text-align: justify;
+}
+
+.authorPresentation{
+    display: flex;
+    align-items: center;
+}
+
+.authorPresentation img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    margin: 0.5rem;
+}
+
+.authorPresentation h4{
+    font-size: 1.5rem;
+}
+
+.mainSide{
+    margin: 3.5rem 0 1rem 8rem;
+    width: 43%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainSide p{
+    text-align: justify;
+    margin-top: 0.5rem;
+    max-height: 18vh;
+}
+
+.smallDetails{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pages, .language, .published{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.smallDetails p{
+    margin-bottom: 0.5rem;
+}
+
+.boldText{
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+.buyColumn{
+    margin-top: 2rem;
+}
+
+.buyColumn h4{
+    font-size: 1.2rem;
+}
+
+.buyColumn h3{
+    margin-top: 0.5rem;
+}
+
+.buyButton{
+    margin-top: 0.5rem;
+}
+
+.commentSection{
+    margin-left: 1rem;
+    width: 43%;
+}
+

@@ -5,3 +5,11 @@
     justify-content: space-between;
     min-height: 8rem;
 }
+
+.detailIcon{
+    color: black;
+}
+
+.detailIcon svg{
+    margin-right: 0.5rem;
+}
