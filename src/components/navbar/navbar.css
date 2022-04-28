@@ -5,10 +5,13 @@
         align-items: center;
     }
 
-    a{
-    text-decoration: none;
+    .linkLogo, .linkLogin, .linkLogout{
+        text-decoration: none;    
+        }
     
-    }
+        .linkLogo:hover, .linkLogin:hover, .linkLogout:hover{
+            background-color: transparent;
+        }
 
    
 
@@ -118,10 +121,13 @@
         align-items: center;
     }
 
-    a{
-    text-decoration: none;
-    }
-
+    .linkLogo, .linkLogin, .linkLogout{
+        text-decoration: none;
+        }
+    
+        .linkLogo:hover, .linkLogin:hover, .linkLogout:hover{
+            background-color: transparent;
+        }
     .toolBar{
         background: #2193b0;  /* fallback for old browsers */
         background: -webkit-linear-gradient(to right, #6dd5ed, #03a9f4);  /* Chrome 10-25, Safari 5.1-6 */
@@ -229,8 +235,12 @@
       
     }
 
-    a{
-    text-decoration: none;
+    .linkLogo, .linkLogin, .linkLogout{
+        text-decoration: none;    
+        }
+    
+    .linkLogo:hover, .linkLogin:hover, .linkLogout:hover{
+        background-color: transparent;
     }
 
     .toolBar{
@@ -335,12 +345,12 @@
         display: flex;
     }
 
-    a{
+    .linkLogo, .linkLogin, .linkLogout{
     text-decoration: none;    
     color: transparent;
     }
 
-    a:hover{
+    .linkLogo:hover, .linkLogin:hover, .linkLogout:hover{
         background-color: transparent;
     }
 

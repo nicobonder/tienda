@@ -111,7 +111,7 @@ const handleAuth = ()=>{
               <MenuIcon />
                 </IconButton> */}
             
-            <Link  to='/' >
+            <Link className='linkLogo' to='/' >
                 <IconButton className='logoContainer' sx={{ padding: 0}}>
                     <img className='logoTienda' src={logoTienda} />
                 </IconButton>
@@ -122,12 +122,12 @@ const handleAuth = ()=>{
             <h4 className='welcome'>
               Bienvenid@ {user ? user.email : ""}!
               </h4>
-            <Link to='/signin'>
+            <Link to='/signin' className='linkLogin'>
             <div>
                 <button className='loginButton' onClick={handleAuth}>{user ? "Desconectate" : "Logueate"}</button>
             </div>
             </Link>
-          <Link to="/checkout-page">
+          <Link to="/checkout-page" className='linkLogout'>
             <IconButton className='shoppingCart' sx={{ marginRight: 8 }}>
             <Badge badgeContent={basket?.length} color="secondary" className='badgeCart' sx={{ margin: 0}}>
                     <ShoppingCart fontSize='large' className='cartButton' />

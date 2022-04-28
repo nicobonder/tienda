@@ -116,7 +116,7 @@ export default function SignIn() {
                 </RouterLink>
               </Grid>
               <Grid item>
-                <RouterLink to='/signup'>
+                <RouterLink to='/signup' color='#000'>
                   {"No tenés una cuenta? Registrate gratis"}
                 </RouterLink>
               </Grid>
