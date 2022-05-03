@@ -38,6 +38,8 @@ const products = [
         description: "Te cuento lo mejor (y lo peor) que vivimos durante nuestro recorrido de casi 31.000 kilómetros por 10 países de Sudamérica durante 195 días, y aunque en un viaje, como en la vida, no todo es felicidad y buenos momentos, vas a poder vivir la emoción que nosotros sentíamos cada vez que nuestros niños interiores corrían libres delante nuestro.",
         file: <a href={recorriendoSudamerica} 
         download="recorriendoSudamerica.pdf">Descarga el libro</a>,
+        freeSample: <a href={recorriendoSudamerica} 
+        download="recorriendoSudamerica.pdf">Hacé clic y lee las primeras páginas</a>,
         authorImg: NicoBonder,
         authorDescription: "Nico escribe cuentos hace más de 15 años y cuando comenzó a viajar sintió la necesidad de narrar las historias que atravezaba en sus viajes. Así nacieron sus primeras crónicas de viajes, en las que muestra los hechos más interesantes del viaje que hizo junto a su pareja Lu por Sudamérica. Sus escritos son directos, rápidos y cargados de acciones.",
         pages: "160",
@@ -55,6 +57,8 @@ const products = [
         description: "Como habitante del interior del interior de Argentina, me resulta casi inevitable pensar mis historias en pequeños pueblos, donde no suele haber mucho para hacer, entonces vemos personajes aburridos, buscando la diversión en pequeñas maldades, con fantasías de bajo vuelo. Por eso digo que Visita oficial es una colección de 32 cuentos con historias que están ambientadas en pequeños pueblos y son abundantes de personajes que vas a odiar.",
         file: <a href={visitaOficial} 
         download="visitaOficial.pdf">Descarga el libro</a>,
+        freeSample: <a href={visitaOficial} 
+        download="visitaOficial.pdf">Hacé clic y lee las primeras páginas</a>,
         authorImg: NicoBonder,
         authorDescription: "Nico escribe cuentos hace más de 15 años y cuando comenzó a viajar sintió la necesidad de narrar las historias que atravezaba en sus viajes. Así nacieron sus primeras crónicas de viajes, en las que muestra los hechos más interesantes del viaje que hizo junto a su pareja Lu por Sudamérica. Sus escritos son directos, rápidos y cargados de acciones.",
         pages: "150",
@@ -72,6 +76,8 @@ const products = [
         description: "Colección de cuentos que tienen un camino en común: las anécdotas vividas por una persona desde que inicia su infancia hasta que esta se termina. ¿Cómo saber cuándo se acaba una etapa de la vida? Transitando estas historias vas a descubrir que, como en la tuya, en cualquier vida hay tiempos felices, épocas de descubrimiento y, para algunos, también existen momentos trágicos. ¿Cuántas historias se viven en una vida? ¿Cuántos traumas nos llevamos de la infancia para el resto de la vida?",
         file: <a href={anecdotasInfantiles} 
         download="anecdotasInfantiles.pdf">Descarga el libro</a>,
+        freeSample: <a href={anecdotasInfantiles} 
+        download="anecdotasInfantiles.pdf">Hacé clic y lee las primeras páginas</a>,
         authorImg: NicoBonder,
         authorDescription: "Nico escribe cuentos hace más de 15 años y cuando comenzó a viajar sintió la necesidad de narrar las historias que atravezaba en sus viajes. Así nacieron sus primeras crónicas de viajes, en las que muestra los hechos más interesantes del viaje que hizo junto a su pareja Lu por Sudamérica. Sus escritos son directos, rápidos y cargados de acciones.",
         pages: "110",
@@ -89,6 +95,8 @@ const products = [
         description: "Cada cuento tiene protagonistas y miradas diferentes. En algunos encontramos una mirada desde adentro de la cancha, en otros se parte de los ojos de un chico que sueña con debutar en la primera de un club de barrio. Y porque el deporte es sagrado para algunos, conoceremos el Génesis futbolero. Otras voces lo rozan solo tangencialmente, mostrando lo que provoca el fanatismo, o la historia de héroes impensados que salvan una ciudad desde la torre de transmisión de una cancha. La historia más trágica está basada en una anécdota real que le contó un paciente a mi padre. Si sos fanático del deporte este libro es ideal para vos, y también si sos de las personas que se asombran y disfrutan con delirios sencillos.",
         file: <a href={cariciaDivina} 
         download="cariciaDivina.pdf">Descarga el libro</a>,
+        freeSample: <a href={cariciaDivina} 
+        download="cariciaDivina.pdf">Hacé clic y lee las primeras páginas</a>,
         authorImg: NicoBonder,
         authorDescription: "Nico escribe cuentos hace más de 15 años y cuando comenzó a viajar sintió la necesidad de narrar las historias que atravezaba en sus viajes. Así nacieron sus primeras crónicas de viajes, en las que muestra los hechos más interesantes del viaje que hizo junto a su pareja Lu por Sudamérica. Sus escritos son directos, rápidos y cargados de acciones.",
         pages: "160",

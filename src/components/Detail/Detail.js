@@ -18,12 +18,13 @@ import Rating from '../Rating/Rating';
 //Para probar si funciona hardcodeado
 import anecdotas from '../../images/anecdotas.jpg'
 import NicoBonder from '../../images/NicoBonder.jpg';
-import arrayProducts from "../../data/productData.json";
+import products from '../../productData';
 
 export default function Detail( props ) {
+    const {id} =useParams()
     const API_URL = 'http://localhost:3500/arrayProducts';
     const [arrayProducts, setArrayProducts] = useState([]);
-    const {id} = useParams();
+    const [product, setProduct] = useState(null)
     const [fetchError, setFetchError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const { name, author, regionTrip, image, price, rating, description, file, authorImg, authorDescription, pages, language, published} = props;
@@ -46,68 +47,74 @@ export default function Detail( props ) {
       }
 
     useEffect(() => {
-        const fetchItems = async () => {
-            try {
-                const response = await fetch(API_URL);
-                if(!response.ok) throw Error('Hubo un error en los datos solicitados');
-                const listItems = await response.json();
-                setArrayProducts(listItems);
-                setFetchError(null);
-            } catch (err) {
-                setFetchError(err.stack);
-            } finally {
-                setIsLoading(false);
-            }
+        const productFound = products.filter(e => e.id === +id)
+        if(productFound.length > 0) {
+            console.log(productFound)
+            setProduct(productFound[0])
         }
-        setTimeout(() => { //esto despues puedo borrarlo, es para simular el tiempo de carga
-           (async () => await fetchItems())();
-        }, 2000)
-        
+        // const fetchItems = async () => {
+        //     try {
+        //         const response = await fetch(API_URL);
+        //         console.log(response)
+        //         if(!response.ok) throw Error('Hubo un error en los datos solicitados');
+        //         const listItems = await response.json();
+        //         setArrayProducts(listItems);
+        //         setFetchError(null);
+        //     } catch (err) {
+        //         setFetchError(err.stack);
+        //     } finally {
+        //         setIsLoading(false);
+        //     }
+        // }
+        // setTimeout(() => { //esto despues puedo borrarlo, es para simular el tiempo de carga
+        //    (async () => await fetchItems())();
+        // }, 2000)
+
     }, [])
     
     return (
         <div className='detailComponent'>
             <div className='topSection'>
-        {isLoading && <p>Cargando tu produco...</p>}
+       {/* {isLoading && <p>Cargando tu produco...</p>} */}
                 {/* {fetchError && <p style={{color: "black"}}>{`Error: ${fetchError}`}</p>} */}
                 <div className='leftColumn'>
                     <Link to="/" className="btnBack">
                         <ArrowBackIosIcon /> Volver
                     </Link>
                     <div className='freeSample'>
-                        <h3>Lee las primeras páginas</h3>
-                        <img src={image} />
+                        <h4>{product?.freeSample}</h4>
+                        <img src={product?.image} />
                     </div>
                     <div className='aboutAuthor'>
                         <h3>¿Quién es el autor?</h3>
                         <div className='authorPresentation'>
-                            <img src={authorImg} />
-                            <h4>{author}</h4>
+                            <img src={product?.authorImg} />
+                            <h4>{product?.author}</h4>
                         </div>
-                        <p>{authorDescription}</p>
+                        <p>{product?.authorDescription}</p>
                     </div>
                 </div>
 
                 <div className='mainSide'>
-                    <h1>Recorriendo Sudamerica</h1>
-                    <p>Te cuento lo mejor (y lo peor) que vivimos durante nuestro recorrido de casi 31.000 kilómetros por 10 países de Sudamérica durante 195 días, y aunque en un viaje, como en la vida, no todo es felicidad y buenos momentos, vas a poder vivir la emoción que nosotros sentíamos cada vez que nuestros niños interiores corrían libres delante nuestro.</p>
+                    <h1>{product?.name}</h1>
+                    <p>{product?.description}</p>
                     
                     <div className='bottomSection'>
                         <div className='smallDetails'>
                             <div className='pages'>
                                 <p>Cantidad de páginas</p>
                                 <Filter1Icon />
-                                <p className='boldText'>150</p>
+                                <p className='boldText'>{product?.pages}</p>
                             </div>
                             <div className='language'>
                                 <p>Idioma</p>
                                 <LanguageIcon />
-                                <p className='boldText'>Español</p>
+                                <p className='boldText'>{product?.language}</p>
                             </div>
                             <div className='published'>
                                 <p>Fecha de publicación</p>
                                 <CalendarMonthIcon />
-                                <p className='boldText'>15/05/2020</p>
+                                <p className='boldText'>{product?.published}</p>
                             </div>
                         </div>
                     </div>
@@ -116,7 +123,7 @@ export default function Detail( props ) {
                         <IconButton onClick={addToBasket} aria-label="add to Cart">
                             <AddShoppingCart className='buyButton' color='#fff' fontSize='large' />
                         </IconButton>
-                        <h3>{accounting.formatMoney(price)}</h3>
+                        <h3>{accounting.formatMoney(product?.price)}</h3>
                     </div>
             
                 </div>

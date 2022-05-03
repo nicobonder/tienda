@@ -25,10 +25,21 @@
     height: auto;
 }
 
-.freeSample h3, .aboutAuthor h3{
+.aboutAuthor h3{
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
+}
+
+.freeSample h4{
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.freeSample a{
+    text-decoration: none;
+    color: black;
 }
 
 .aboutAuthor p{
