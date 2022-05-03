@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import accounting from 'accounting'; //para que el precio se muestre con formato de moneda
 import { useStateValue } from '../../StateProvider'; //
 import { actionTypes } from '../../reducer'; //
@@ -16,12 +18,16 @@ import Rating from '../Rating/Rating';
 //Para probar si funciona hardcodeado
 import anecdotas from '../../images/anecdotas.jpg'
 import NicoBonder from '../../images/NicoBonder.jpg';
-import products from '../../productData';
+import arrayProducts from "../../data/productData.json";
 
-export default function Detail( products ) {
-    const { id, name, author, regionTrip, image, price, rating, description, file, authorImg, authorDescription, pages, language, published } = products;
+export default function Detail( props ) {
+    const API_URL = 'http://localhost:3500/arrayProducts';
+    const [arrayProducts, setArrayProducts] = useState([]);
+    const {id} = useParams();
+    const [fetchError, setFetchError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const { name, author, regionTrip, image, price, rating, description, file, authorImg, authorDescription, pages, language, published} = props;
     const [{basket}, dispatch] = useStateValue();
-  
     const addToBasket = () => {
         dispatch({
           type: actionTypes.ADD_TO_BASKET,
@@ -38,26 +44,47 @@ export default function Detail( products ) {
           }
         })
       }
+
+    useEffect(() => {
+        const fetchItems = async () => {
+            try {
+                const response = await fetch(API_URL);
+                if(!response.ok) throw Error('Hubo un error en los datos solicitados');
+                const listItems = await response.json();
+                setArrayProducts(listItems);
+                setFetchError(null);
+            } catch (err) {
+                setFetchError(err.stack);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+        setTimeout(() => { //esto despues puedo borrarlo, es para simular el tiempo de carga
+           (async () => await fetchItems())();
+        }, 2000)
+        
+    }, [])
     
-  
     return (
         <div className='detailComponent'>
             <div className='topSection'>
+        {isLoading && <p>Cargando tu produco...</p>}
+                {/* {fetchError && <p style={{color: "black"}}>{`Error: ${fetchError}`}</p>} */}
                 <div className='leftColumn'>
                     <Link to="/" className="btnBack">
                         <ArrowBackIosIcon /> Volver
                     </Link>
                     <div className='freeSample'>
                         <h3>Lee las primeras páginas</h3>
-                        <img src={products.image} />
+                        <img src={image} />
                     </div>
                     <div className='aboutAuthor'>
                         <h3>¿Quién es el autor?</h3>
                         <div className='authorPresentation'>
-                            <img src={NicoBonder} />
-                            <h4>Nico Bonder</h4>
+                            <img src={authorImg} />
+                            <h4>{author}</h4>
                         </div>
-                        <p>Nico escribe cuentos hace más de 15 años y cuando comenzó a viajar sintió la necesidad de narrar las historias que atravezaba en sus viajes. Así nacieron sus primeras crónicas de viajes, en las que muestra los hechos más interesantes del viaje que hizo junto a su pareja Lu por Sudamérica. Sus escritos son directos, rápidos y cargados de acciones.</p>
+                        <p>{authorDescription}</p>
                     </div>
                 </div>
 

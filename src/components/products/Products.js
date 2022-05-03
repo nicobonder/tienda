@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function Products() {
+export default function Products(product) {
   const [regionTrip, setRegionTrip] = useState('')
   const regionTrips = [
     'Sudamérica',

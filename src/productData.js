@@ -26,7 +26,6 @@ import LauraJuan from './images/LauraJuan.jpg';
 import NicoBonder from './images/NicoBonder.jpg';
 import ManuelLeguineche from './images/ManuelLeguineche.jpg';
 
-
 const products = [
     {
         id: 1,
