@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Product from '../product/Product'
 import './products.css'
 import products from '../../productData';
+import RegionList from '../Regions/RegionList';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -16,35 +17,38 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Products(product) {
-  const [regionTrip, setRegionTrip] = useState('')
-  const regionTrips = [
-    'Sudamérica',
-    'Norte América',
-    'Australia',
-    'Oceanía',
-    'Argentina',
-    'Mundo',
-    'Europa',
-    'Asia',
-    'Sudeste Asiático',
-    'África'
-  ] 
+  const [data, setData]=useState(products);
+  const filterResult=(catItem)=>{
+    const result=products.filter((curData)=>{
+        return curData.regionTrip===catItem;
+    });
+    setData(result);
+    console.log(result);
+}
 
   return (
     <Box className='home' sx={{ flexGrow: 1 }}>
-      <div className='filters'>
-        <h4>Regiones</h4>
-        <ul>{regionTrips.map(regionTrip => (
-            <li key={regionTrip}
-                onClick={() => setRegionTrip(regionTrip)}>
-                  {regionTrip}
-            </li>
-          ))}
-        </ul>
-      </div>
+       <div className='filters'>
+            <h4>Regiones</h4>
+            <div className='regionFilter'>
+                <button className='regionButton' onClick={() => filterResult('Sudamérica')}>Sudamérica</button>
+                <button className='regionButton' onClick={() => filterResult('Norte América')}>Norte América</button>
+                <button className='regionButton' onClick={() => filterResult('Australia')}>Australia</button>
+                <button className='regionButton' onClick={() => filterResult('Oceanía')}>Oceanía</button>
+                <button className='regionButton' onClick={() => filterResult('Argentina')}>Argentina</button>
+                <button className='regionButton' onClick={() => filterResult('Mundo')}>Mundo</button>
+                <button className='regionButton' onClick={() => filterResult('Europa')}>Europa</button>
+                <button className='regionButton' onClick={() => filterResult('Asia')}>Asia</button>
+                <button className='regionButton' onClick={() => filterResult('Sudeste Asiático')}>Sudeste Asiático
+                </button>
+                <button className='regionButton' onClick={() => filterResult('África')}>África</button>
+                <button className='regionButton' onClick={() => setData(products)}>Todas</button>
+            </div>
+        </div>   
+    {/*<RegionList /> */}
       <Grid className='containerProducts' container spacing={3}>
         {
-            products.map(product => (
+            data.map(product => (
                 <Grid item xs={12} sm={6} md={4} xl={3} >
                     <Product key={product.id} product={product} />
                 </Grid>

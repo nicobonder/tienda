@@ -15,18 +15,12 @@ import LanguageIcon from '@mui/icons-material/Language';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 //Componente Rating
 import Rating from '../Rating/Rating';
-//Para probar si funciona hardcodeado
-import anecdotas from '../../images/anecdotas.jpg'
-import NicoBonder from '../../images/NicoBonder.jpg';
+//Array de productos
 import products from '../../productData';
 
 export default function Detail( props ) {
     const {id} =useParams()
-    const API_URL = 'http://localhost:3500/arrayProducts';
-    const [arrayProducts, setArrayProducts] = useState([]);
     const [product, setProduct] = useState(null)
-    const [fetchError, setFetchError] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
     const { name, author, regionTrip, image, price, rating, description, file, authorImg, authorDescription, pages, language, published} = props;
     const [{basket}, dispatch] = useStateValue();
     const addToBasket = () => {
@@ -52,24 +46,7 @@ export default function Detail( props ) {
             console.log(productFound)
             setProduct(productFound[0])
         }
-        // const fetchItems = async () => {
-        //     try {
-        //         const response = await fetch(API_URL);
-        //         console.log(response)
-        //         if(!response.ok) throw Error('Hubo un error en los datos solicitados');
-        //         const listItems = await response.json();
-        //         setArrayProducts(listItems);
-        //         setFetchError(null);
-        //     } catch (err) {
-        //         setFetchError(err.stack);
-        //     } finally {
-        //         setIsLoading(false);
-        //     }
-        // }
-        // setTimeout(() => { //esto despues puedo borrarlo, es para simular el tiempo de carga
-        //    (async () => await fetchItems())();
-        // }, 2000)
-
+       
     }, [])
     
     return (
