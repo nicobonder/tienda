@@ -44,3 +44,9 @@
     height: 2.2rem;
     width: 17%;
 }
+
+.needLogin{
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}

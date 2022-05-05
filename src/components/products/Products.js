@@ -6,7 +6,6 @@ import Grid from '@mui/material/Grid';
 import Product from '../product/Product'
 import './products.css'
 import products from '../../productData';
-import RegionList from '../Regions/RegionList';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -28,7 +27,7 @@ export default function Products(product) {
 
   return (
     <Box className='home' sx={{ flexGrow: 1 }}>
-       <div className='filters'>
+      <div className='filters'>
             <h4>Regiones</h4>
             <div className='regionFilter'>
                 <button className='regionButton' onClick={() => filterResult('Sudamérica')}>Sudamérica</button>
@@ -44,8 +43,8 @@ export default function Products(product) {
                 <button className='regionButton' onClick={() => filterResult('África')}>África</button>
                 <button className='regionButton' onClick={() => setData(products)}>Todas</button>
             </div>
-        </div>   
-    {/*<RegionList /> */}
+  </div>
+
       <Grid className='containerProducts' container spacing={3}>
         {
             data.map(product => (
