@@ -1,3 +1,65 @@
 .addReview{
-    margin-top: 6rem;
+    margin: 0rem 0 1rem 1rem;
+}
+
+.ratingStars{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    color: transparent;
+}
+
+
+
+.ratingStars h3{
+    font-size: 1.5rem;
+    color: black;
+    
+}
+
+.ratingStars h4{
+    font-size: 1.2rem;
+    margin: 1rem 0 0.5rem 0;
+    color: black;
+}
+
+.stars{
+    display: flex;
+}
+
+.comments{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.commentTitle{
+    width: 77%;
+    padding: 0.5rem !important;
+    font-family: roboto;
+    height: 2rem !important;
+    margin: 1rem 0 3.5rem 0 !important;
+    border-color: red !important;
+    font-size: 1.5rem !important;
+}
+
+.commentDescription{
+    width: 74%;
+    max-width: 75% !important;
+    border-color: rgb(133, 133, 133) !important;
+    font-size: 1rem;
+    padding: 0.5rem;
+    font-family: roboto;
+    margin: 0.5rem 0 !important;
+    border-radius: 0.25rem;
+}
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
+    padding: 0 !important;
+}
+
+.reviewButton{
+    width: 77%;
+    max-width: 77% !important;
 }

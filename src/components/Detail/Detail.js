@@ -17,8 +17,17 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Rating from '../Rating/Rating';
 //Array de productos
 import products from '../../productData';
+//importo firebase
+import {db} from '../../firebase';
+
 
 export default function Detail( props ) {
+    
+    const addNewComment  = async (commentObjet) => {
+        await db.collection('comments').doc().set(commentObjet);
+        console.log('nuevo comentario agregado')
+    }
+
     const {id} =useParams()
     const [product, setProduct] = useState(null)
     const { name, author, regionTrip, image, price, rating, description, file, authorImg, authorDescription, pages, language, published} = props;
@@ -39,6 +48,22 @@ export default function Detail( props ) {
           }
         })
       }
+
+    const [comments, setComments] = useState([]);
+    const getComments = async () => {
+        db.collection('comments').onSnapshot((querySnapshot) => {
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+                docs.push({...doc.data(), id:doc.id});
+            });
+            console.log(docs);
+        });
+    };
+
+    useEffect(() => {
+        getComments();
+    }, []);
+
 
     useEffect(() => {
         const productFound = products.filter(e => e.id === +id)
@@ -107,7 +132,7 @@ export default function Detail( props ) {
             </div>
                 
                 <div className='commentSection'>
-                    <Rating/>
+                    <Rating addNewComment={addNewComment}/>
                 </div>
         </div>
     );

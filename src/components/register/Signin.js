@@ -21,9 +21,9 @@ import { auth } from '../../firebase';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+      {'Tienda Viajera © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Tienda Viajera
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
