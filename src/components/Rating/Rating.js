@@ -19,9 +19,10 @@ import { db } from '../../firebase';
 //toastify
 import { toast } from 'react-toastify';
 
-export default function Rating({ navigate, idProduct}, props ) {
+export default function Rating(props) {
+  const [{basket, user}, dispatch] = useStateValue();
   const { id } = useParams()
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const initialStateValues = {
     title: "",
     review: "",
@@ -35,6 +36,9 @@ export default function Rating({ navigate, idProduct}, props ) {
     user ? setuserLogged(true) : setuserLogged(false)
   })
   const [values, setValues] = useState(initialStateValues);
+  const [email,setEmail] = useState();
+
+
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -124,10 +128,11 @@ export default function Rating({ navigate, idProduct}, props ) {
             //en su version hay onFinishRatin={{value}} =>setRating(value) es una prop de la libreria q el uso
             />
             {/* Use rating value */}
-            {rating}
+           {rating}
 
           </div>
-          <div className='comments'>                      
+          <div className='comments'>
+                                 
             <TextField
               placeholder='Titulo'
               className='commentTitle'

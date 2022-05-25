@@ -171,15 +171,15 @@ export default function Detail(props) {
                 </div>
             </div>
             <div className='commentSection'>
-                <Rating {...{addNewComment, currentId, comments }} />
+                  <Rating {...{addNewComment, currentId, comments }} />
             </div>
             <div className='allComments'>
                 <h3>Leer otras opiniones</h3>
                 {comments.map(comment => (
                     <div className="showMap" key={comment.id}>
                         <div className='showComment'>
-                            <div className='showTitle'>
                                 <p>{user.email}</p>
+                            <div className='showTitle'>
                                 <h4>{comment.title}</h4>
                                 <div className="specialIcons">
                                     <IconButton aria-label="delete" onClick={() => deleteComment(comment.id)}>
