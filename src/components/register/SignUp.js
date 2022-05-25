@@ -106,9 +106,7 @@ export default function SignUp() {
                   label="Nombre"
                   helperText={nameMessage}
                   variant="outlined"
-                  
                 />
-
               </Grid>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -129,7 +127,6 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 />
-
               </Grid>
               <Grid item xs={12}>
                 <TextField

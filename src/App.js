@@ -13,7 +13,10 @@ import { useEffect } from 'react';
 import { auth } from './firebase';
 import { actionTypes } from './reducer';
 import { useStateValue } from './StateProvider';
-import AddReview from './components/Rating/addReview';
+
+//toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const theme = createTheme({
@@ -58,10 +61,10 @@ function App() {
                 <Route path="signup" element={<SignUp />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/product/:id" element={<Detail />} />
-                <Route path="/review" element={<AddReview />} />
-
+              
             </Routes>
         </BrowserRouter>
+        <ToastContainer />
       </div>
   </ThemeProvider>;
 }

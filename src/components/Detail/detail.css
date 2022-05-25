@@ -119,3 +119,29 @@
     width: 43%;
 }
 
+.allComments{
+    margin-left: 1rem;
+}
+.showComment{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 0.5rem 0.5rem 1rem 0rem;
+    border-bottom: 1px solid rgb(171, 171, 171);
+}
+
+.showComment h4{
+    font-size: 1rem;
+    margin: 0;
+}
+
+.showComment p{
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.showTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

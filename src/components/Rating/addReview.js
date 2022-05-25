@@ -1,6 +1,10 @@
+/****NO ESTOY USANDO ESTE ARCHIVO ****/
+/****NO ESTOY USANDO ESTE ARCHIVO ****/
+/****NO ESTOY USANDO ESTE ARCHIVO ****/
+
+
 import React from 'react';
 import { useState, useRef } from 'react';
-import './addReview.css';
 import { useParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 //Rating
