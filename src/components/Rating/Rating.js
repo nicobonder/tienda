@@ -30,49 +30,58 @@ export default function Rating(props) {
     rating: 0,
   };
   const [rating, setRating] = useState(null) // initial rating value
-
   const [userLogged, setuserLogged] = useState(false);
+  const [values, setValues] = useState(initialStateValues);
+  const [email,setEmail] = useState();
+  const[formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
   firebase.auth().onAuthStateChanged((user) => {
     user ? setuserLogged(true) : setuserLogged(false)
   })
-  const [values, setValues] = useState(initialStateValues);
-  const [email,setEmail] = useState();
-
-
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    props.addNewComment(values);
-    setValues({ ...initialStateValues })
-    if (values.title.length < 4) {
-      return (
-        toast('El título debe tener 4 caracteres como mínimo', {
-          type: "warning",
-          autoClose: 2000,
-          position: "top-center",
-        })
-      )
-    }
-    if (values.review.length < 8) {
-      return (
-        toast('El comentario debe tener 8 caracteres como mínimo', {
-          type: "warning",
-          autoClose: 2000,
-          position: "top-center",
-        })
-      )
-    }
-  };
-  // Catch Rating value
-  const handleRating = (rate) => {
-    setRating(rate)
-    // Some logic
-  }
 
   const handleInputchange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value })
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const errores = validate(values)
+    if(Object.keys(errores).length === 0) {
+       props.addNewComment(values);
+       setValues({ ...initialStateValues });
+       setIsSubmit(true);
+    }
+    setFormErrors(validate(values));
+};
+
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmit){
+      console.log(values);
+    }
+  },[formErrors]);
+
+  const validate = (values) => {
+    const errors = {};
+    if (values.title.length < 4) {
+      errors.title = "El título tiene que tener por lo menos 4 caracteres";
+    } else if (values.title.length === 0) {
+    errors.title = "Debes ingresar un título";
+    }
+    if (values.review.length < 8) {
+      errors.review = "El comentario tiene que tener por lo menos 8 caracteres";
+    } else if (values.review.length === 0) {
+      errors.review = "Debes ingresar un comentario";
+    }
+    return errors;
+  };  
+
+  // Catch Rating value
+  const handleRating = (rate) => {
+    setRating(rate)
+    // Some logic
+  }
 
   const addReview = () => {
     if (!ValidForm()) {
@@ -96,6 +105,7 @@ export default function Rating(props) {
     setValues({ ...doc.data() })
   }
 
+  //ver que pasa si anulo esta funcion
   useEffect(() => {
     console.log(props.currentId)
     if (props.currentId === '') {
@@ -104,6 +114,7 @@ export default function Rating(props) {
       getCommentById(props.currentId);
     }
   }, [props.currentId]);
+
 
   return (
     <div className='RatingSection'>
@@ -145,6 +156,7 @@ export default function Rating(props) {
               //helperText={titleMessage}
               variant="outlined"
             />
+            <p>{ formErrors.title}</p>
             <TextareaAutosize
               minRows={10}
               className='commentDescription'
@@ -158,6 +170,7 @@ export default function Rating(props) {
               //helperText={reviewMessage}
               variant="outlined"
             />
+            <p>{ formErrors.review}</p>
             {
               userLogged ? (
                 <Button
