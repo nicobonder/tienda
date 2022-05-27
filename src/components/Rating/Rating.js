@@ -156,7 +156,7 @@ export default function Rating(props) {
               //helperText={titleMessage}
               variant="outlined"
             />
-            <p>{ formErrors.title}</p>
+            <p className='errorP'>{ formErrors.title}</p>
             <TextareaAutosize
               minRows={10}
               className='commentDescription'
@@ -170,7 +170,7 @@ export default function Rating(props) {
               //helperText={reviewMessage}
               variant="outlined"
             />
-            <p>{ formErrors.review}</p>
+            <p className='errorP'>{ formErrors.review}</p>
             {
               userLogged ? (
                 <Button
